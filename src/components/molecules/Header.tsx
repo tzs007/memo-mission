@@ -2,7 +2,7 @@ import { Indicator, Logo, Toolbar } from "components";
 
 export const Header = () => {
   return (
-    <header className="grid grid-cols-2 md:grid-cols-[1fr_auto] grid-rows-2 lg:grid-cols-3 lg:grid-rows-1 py-4 gap-x-3 gap-y-0">
+    <header className="grid grid-cols-2 sm:grid-cols-[1fr_auto] grid-rows-2 lg:grid-cols-3 lg:grid-rows-1 py-4 gap-x-3 gap-y-0">
       <div className="col-start-1 row-start-1 flex items-center justify-start  max-lg:justify-end">
         <Logo />
       </div>

@@ -43,7 +43,7 @@ export const Toolbar = () => {
 
   return (
     <div className="flex flex-col items-end gap-3">
-      <div className="flex flex-row gap-1 md:gap-3">
+      <div className="flex flex-row sm:gap-1 md:gap-3">
         <IconButton iconName="cog" onClick={handleSettingsModalState} />
         <div className="flex flex-1 bg-[#d5d5d5] w-[1px]" />
         <div className="w-9 text-center">

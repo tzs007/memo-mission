@@ -34,7 +34,7 @@ export const Board = () => {
 
   return (
     <div
-      className="grid gap-5 bg-[#f5f5f5] p-[25px] md:p-[50px] rounded-[25px]
+      className="grid gap-2.5 xl:gap-5 bg-[#f5f5f5] p-[35px] md:p-[50px] lg:p-[75px] rounded-[25px]
         auto-rows-fr 
         grid-cols-3 
         md:grid-cols-4 
