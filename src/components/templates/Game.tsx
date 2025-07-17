@@ -38,7 +38,7 @@ export const Game = () => {
   return (
     <section
       id="memo-mission"
-      className="container mx-auto pb-[50px] px-[50px]"
+      className="container mx-auto pb-[50px] max-sm:px-[50px]"
     >
       <div className="w-full">
         <Header />
