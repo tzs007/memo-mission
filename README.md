@@ -58,9 +58,14 @@ The build will be output to the `build/` directory.
 
 ## Configuring Settings
 
-Game settings can be configured in the source code:
+Game settings can be configured in the cog menu:
 
-- Card images: To change cards illustration change the emojis in `utils/game.ts`.
+- Set your number of pair of cards from 2 to 50
+- Set your play time from 10 to 120 seconds
+
+User settings can be configured in the user menu:
+
+- Add your name and save on profile settings page
 
 ## Running Tests
 
@@ -73,6 +78,19 @@ yarn test
 ```
 
 Tests use Jest and React Testing Library. Test files are located in `src/` and use `.test.tsx` or `.spec.tsx` extensions.
+
+## Possible Future Updates
+
+I'm considering several enhancements for Memo Mission in future releases, such as:
+
+- Persistent store for saving game progress and settings
+- Changable card themes and illustrations
+- Support for multiplayer gameplay
+- Improved accessibility features
+- Leaderboards and achievement tracking
+- High score beat notifications and achievement system
+
+Feedback and suggestions for new features are always welcome.
 
 ## Troubleshooting
 

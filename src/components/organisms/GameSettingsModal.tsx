@@ -36,6 +36,8 @@ export const GameSettingsModal = () => {
     if (
       Number.isNaN(_pairs) ||
       Number.isNaN(_time) ||
+      _time < 10 ||
+      _time > 120 ||
       _pairs < 2 ||
       _pairs > 50
     ) {
@@ -53,6 +55,11 @@ export const GameSettingsModal = () => {
 
   const checkPairsValidity = () => {
     return Number(pairs) < 2 || Number(pairs) > 50;
+  };
+
+  const checkTimeValidity = () => {
+    const secs = Number(time);
+    return secs < 10 || secs > 120 || Number.isNaN(secs);
   };
 
   return (
@@ -97,12 +104,20 @@ export const GameSettingsModal = () => {
               className="text-center"
               value={time}
               onChange={handleTimeChange}
+              data-tooltip-id="countdown-time-tooltip"
             />
+            <Tooltip
+              id="countdown-time-tooltip"
+              isOpen={checkTimeValidity()}
+              place="right"
+            >
+              <p>Must be between 10 and 120 seconds.</p>
+            </Tooltip>
           </fieldset>
           <Button
             className="w-full"
             onClick={handleSave}
-            disabled={checkPairsValidity()}
+            disabled={checkPairsValidity() || checkTimeValidity()}
           >
             Save Settings
           </Button>
