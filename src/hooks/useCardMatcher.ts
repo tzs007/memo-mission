@@ -9,6 +9,25 @@ import {
 } from "store";
 import { playSound } from "utils/game";
 
+/**
+ * Custom hook that handles the logic for matching two flipped cards in a memory game.
+ *
+ * When exactly two cards are flipped, this hook checks if they match:
+ * - If the cards match (i.e., have the same image), it plays a success sound,
+ *   marks the cards as matched, and updates the match count.
+ * - If the cards do not match, it waits for 1 second, then unflips the cards
+ *   and updates the mistake count.
+ *
+ * Dependencies:
+ * - Uses Redux dispatch to update the game state.
+ * - Relies on a custom hook `useFlippedCards` to get the currently flipped cards.
+ *
+ * Side Effects:
+ * - Plays audio feedback on a successful match.
+ * - Uses a timeout to delay unflipping cards on a mismatch.
+ *
+ * @returns void
+ */
 export const useCardMatcher = () => {
   const dispatch = useDispatch();
   const flipped = useFlippedCards();

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Header, Board, GameSettingsModal, TimeUpModal } from "components";
+import { Header, Board } from "components";
 import {
   type RootState,
   countdownTimer,
@@ -19,6 +19,7 @@ export const Game = () => {
   useEffect(() => {
     if (!isMatchInProgress) return;
 
+    // game over check
     const interval = setInterval(() => {
       if (elapsedTime <= 0) {
         playSound("/audio/fail.mp3");

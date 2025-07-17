@@ -1,9 +1,9 @@
 import { IconButton } from "components";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   type RootState,
   toggleSettingsModal,
-  toggleUserProfileModal,
   resetGame,
   startGame,
   initCards,
@@ -11,6 +11,7 @@ import {
 
 export const Toolbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const userName = useSelector((state: RootState) => state.user.name);
 
@@ -27,10 +28,11 @@ export const Toolbar = () => {
   };
 
   const handleUserProfileModalState = () => {
-    dispatch(toggleUserProfileModal());
+    navigate("/settings");
   };
 
-  const handleresetGame = () => {
+  const handleResetGame = () => {
+    dispatch(initCards(numberOfPairs));
     dispatch(resetGame());
   };
 
@@ -46,7 +48,7 @@ export const Toolbar = () => {
         <div className="flex flex-1 bg-[#d5d5d5] w-[1px]" />
         <div className="w-9 text-center">
           {isMatchInProgress ? (
-            <IconButton iconName="repeat" onClick={handleresetGame} />
+            <IconButton iconName="repeat" onClick={handleResetGame} />
           ) : (
             <IconButton iconName="play" onClick={handleStartGame} />
           )}

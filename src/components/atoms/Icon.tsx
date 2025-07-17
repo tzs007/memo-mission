@@ -11,6 +11,6 @@ type IconProps = {
   size?: SizeProp;
 };
 
-export const Icon = ({ icon, className = "", size }: IconProps) => {
+export const Icon = ({ icon, className = "", size = "lg" }: IconProps) => {
   return <FontAwesomeIcon icon={icon} className={className} size={size} />;
 };

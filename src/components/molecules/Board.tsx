@@ -35,9 +35,10 @@ export const Board = () => {
   return (
     <div
       className="grid gap-5 bg-[#f5f5f5] p-[25px] md:p-[50px] rounded-[25px]
-        grid-cols-3 grid-rows-8
-        md:grid-cols-4 md:grid-rows-6
-        lg:grid-cols-6 lg:grid-rows-4
+        auto-rows-fr 
+        grid-cols-3 
+        md:grid-cols-4 
+        lg:grid-cols-6 
         "
     >
       {renderCards()}

@@ -53,6 +53,12 @@ const emojis = [
   "🥪",
 ];
 
+/**
+ * Randomly shuffles the elements of a given array of `CardType` using the Fisher-Yates algorithm.
+ *
+ * @param list - The array of `CardType` objects to shuffle.
+ * @returns A new array containing the shuffled elements.
+ */
 function shuffle(list: CardType[]): CardType[] {
   const result = [...list];
 

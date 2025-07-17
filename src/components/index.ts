@@ -1,5 +1,6 @@
-export * from "./atoms/Button";
+export * from "./atoms/Button/Button";
 export * from "./atoms/Icon";
+export * from "./atoms/Logo";
 export * from "./atoms/Input";
 export * from "./atoms/Timer";
 
@@ -15,6 +16,7 @@ export * from "./organisms/TimeUpModal";
 export * from "./organisms/GameSettingsModal";
 export * from "./organisms/Indicator";
 export * from "./organisms/Stats";
-export * from "./organisms/UserProfileModal";
 
+export * from "./templates/Home";
 export * from "./templates/Game";
+export * from "./templates/UserProfile";

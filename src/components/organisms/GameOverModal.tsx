@@ -1,15 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
-import { type RootState, resetGame, closeGameOverModal } from "store";
+import {
+  type RootState,
+  initCards,
+  resetGame,
+  closeGameOverModal,
+} from "store";
 import { Button, Modal } from "components";
 
 export const GameOverModal = () => {
   const dispatch = useDispatch();
+
+  const numberOfPairs = useSelector(
+    (state: RootState) => state.game.numberOfPairs
+  );
 
   const gameOverIsOpen = useSelector(
     (state: RootState) => state.game.gameOverIsOpen
   );
 
   const handleCloseGameOverModal = () => {
+    dispatch(initCards(numberOfPairs));
     dispatch(resetGame());
     dispatch(closeGameOverModal());
   };

@@ -6,7 +6,9 @@ Memo Mission is a memory card game built with React and TypeScript. Match pairs 
 
 - Fun memory card gameplay
 - Responsive design
-- Configurable settings
+- Configurable game settings
+- Configurable user settings
+- Game history to track your results
 - Test coverage for game logic and UI
 
 ## Getting Started

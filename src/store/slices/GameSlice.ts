@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { GameResult } from "types";
 
 interface GameState {
   matches: number;
@@ -10,6 +11,7 @@ interface GameState {
   settingsIsOpen: boolean;
   timeUpOpen: boolean;
   gameOverIsOpen: boolean;
+  stats: GameResult[];
 }
 
 const initialState: GameState = {
@@ -22,6 +24,7 @@ const initialState: GameState = {
   settingsIsOpen: false,
   timeUpOpen: false,
   gameOverIsOpen: false,
+  stats: [],
 };
 
 const gameSlice = createSlice({
@@ -34,8 +37,17 @@ const gameSlice = createSlice({
     },
     gameOver: (state) => {
       state.isMatchInProgress = false;
+      state.stats.push({
+        id: crypto.randomUUID(),
+        matches: state.matches,
+        mistakes: state.mistakes,
+        duration: state.defaultTime - state.elapsedTime,
+        won: state.matches === state.numberOfPairs,
+        timestamp: Date.now(),
+      });
     },
     resetGame: (state) => {
+      state.matches = 0;
       state.mistakes = 0;
       state.elapsedTime =
         state.elapsedTime < state.defaultTime ? state.defaultTime : 60;
@@ -75,6 +87,12 @@ const gameSlice = createSlice({
     },
     setNumberOfPairs: (state, action: PayloadAction<number>) => {
       state.numberOfPairs = action.payload;
+    },
+    addGameResult: (state, action: PayloadAction<GameResult>) => {
+      state.stats.push(action.payload);
+    },
+    clearHistory: (state) => {
+      state.stats = [];
     },
   },
 });

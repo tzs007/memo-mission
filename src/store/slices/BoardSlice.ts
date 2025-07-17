@@ -45,9 +45,6 @@ const boardSlice = createSlice({
         }
       }
     },
-    resetCards: (state) => {
-      state.cards = [];
-    },
   },
 });
 
@@ -61,12 +58,7 @@ export const useFlippedCards = (): CardType[] => {
   return useSelector(selectFlippedCards);
 };
 
-export const {
-  initCards,
-  flipCard,
-  unflipCards,
-  markCardsAsMatched,
-  resetCards,
-} = boardSlice.actions;
+export const { initCards, flipCard, unflipCards, markCardsAsMatched } =
+  boardSlice.actions;
 export default boardSlice.reducer;
 export type { BoardState };

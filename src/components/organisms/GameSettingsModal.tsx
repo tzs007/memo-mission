@@ -37,7 +37,6 @@ export const GameSettingsModal = () => {
       Number.isNaN(_pairs) ||
       Number.isNaN(_time) ||
       _pairs < 2 ||
-      _pairs % 2 !== 0 ||
       _pairs > 50
     ) {
       return;
@@ -53,7 +52,7 @@ export const GameSettingsModal = () => {
   };
 
   const checkPairsValidity = () => {
-    return Number(pairs) % 2 !== 0 || Number(pairs) < 1 || Number(pairs) > 50;
+    return Number(pairs) < 2 || Number(pairs) > 50;
   };
 
   return (

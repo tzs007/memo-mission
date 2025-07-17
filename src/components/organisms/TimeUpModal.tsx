@@ -1,13 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
-import { type RootState, resetGame, closeTimeUpModal } from "store";
+import { type RootState, initCards, resetGame, closeTimeUpModal } from "store";
 import { Button, Modal } from "components";
 
 export const TimeUpModal = () => {
   const dispatch = useDispatch();
 
+  const numberOfPairs = useSelector(
+    (state: RootState) => state.game.numberOfPairs
+  );
+
   const timeUpOpen = useSelector((state: RootState) => state.game.timeUpOpen);
 
   const handleCloseTimeUpModal = () => {
+    dispatch(initCards(numberOfPairs));
     dispatch(resetGame());
     dispatch(closeTimeUpModal());
   };
