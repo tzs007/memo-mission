@@ -1,7 +1,22 @@
 import "./App.css";
+import {
+  Game,
+  GameSettingsModal,
+  GameOverModal,
+  UserProfileModal,
+  TimeUpModal,
+} from "components";
 
 function App() {
-  return <div className="App">hello world</div>;
+  return (
+    <main>
+      <Game />
+      <GameSettingsModal />
+      <GameOverModal />
+      <TimeUpModal />
+      <UserProfileModal />
+    </main>
+  );
 }
 
 export default App;
