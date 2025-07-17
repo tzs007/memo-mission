@@ -52,7 +52,7 @@ export const Card = ({ card, index }: CardProps) => {
         }}
       >
         <div
-          className="absolute w-full h-full bg-[#f5f5f5] hover:bg-[#ebf5f3] rounded-md sm:rounded-2xl flex items-center justify-center shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.15)] group bg-cover bg-center bg-no-repeat"
+          className="absolute w-full h-full bg-[#f5f5f5] hover:bg-[#ebf5f3] rounded-[10px] lg:rounded-2xl flex items-center justify-center shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.15)] group bg-cover bg-center bg-no-repeat"
           style={{
             backfaceVisibility: "hidden",
             backgroundImage: "url('/card-bg.svg')",
@@ -64,7 +64,7 @@ export const Card = ({ card, index }: CardProps) => {
         </div>
 
         <div
-          className="absolute w-full h-full bg-[#FCFBFB] border border-[#D5D5D5] rounded-md sm:rounded-2xl flex items-center justify-center shadow-[inset_0px_0px_0px_5px_rgba(255,_255,_255,_1)]"
+          className="absolute w-full h-full bg-[#FCFBFB] border border-[#D5D5D5] rounded-[10px] lg:rounded-2xl flex items-center justify-center shadow-[inset_0px_0px_0px_5px_rgba(255,_255,_255,_1)]"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
