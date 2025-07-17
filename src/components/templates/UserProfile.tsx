@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Icon, Input, Logo } from "components"; // Update the path as needed
 import { useDispatch, useSelector } from "react-redux";
@@ -7,26 +7,26 @@ import { type RootState } from "store";
 
 export const UserProfile = () => {
   let navigate = useNavigate();
-  const userRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
-  const userName = useSelector((state: RootState) => state.user.name);
-
   const stats = useSelector((state: RootState) => state.game.stats);
+  const userName = useSelector((state: RootState) => state.user.name);
+  const [tempName, setTempName] = useState<string | null>(userName);
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTempName(e.target.value);
+  };
 
   const handleStartGame = () => {
     navigate("/game");
   };
 
   const handleSave = (): void => {
-    const name = userRef.current?.value.trim();
-    if (!name) {
+    if (!tempName) {
       alert("Please enter a valid name.");
       return;
     }
-    dispatch(setUserName(name));
+    dispatch(setUserName(tempName));
   };
-
-  console.log("STATS", stats);
 
   return (
     <section
@@ -55,14 +55,20 @@ export const UserProfile = () => {
             <fieldset className="flex justify-between gap-2 items-center w-6/12 max-w-full mx-auto">
               <label className="text-lg">Player Name:</label>
               <Input
-                ref={userRef}
                 defaultValue={userName}
                 type="text"
                 className="w-full flex-1"
+                onChange={handleNameChange}
               />
-              <Button size="sm" onClick={handleSave}>
-                Save
-              </Button>
+              {userName === tempName ? (
+                <div className="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                  <Icon icon={["fas", "check"]} size="sm" />
+                </div>
+              ) : (
+                <Button size="sm" onClick={handleSave}>
+                  Save
+                </Button>
+              )}
             </fieldset>
           </div>
           <hr className="my-10" />

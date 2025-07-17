@@ -34,7 +34,10 @@ export const Card = ({ card, index }: CardProps) => {
           (!card.isFlipped && !card.isMatched && flipped.length < 2),
         "jello-horizontal": isMatchInProgress && card.isMatched,
       })}
-      style={{ perspective: "1000px", animationDelay: `${index * 50}ms` }}
+      style={{
+        perspective: "1000px",
+        animationDelay: `${index * 50}ms`,
+      }}
       onClick={handleFlip}
     >
       <div
@@ -44,13 +47,18 @@ export const Card = ({ card, index }: CardProps) => {
             "[transform:rotateY(180deg)]": card.isFlipped,
           }
         )}
-        style={{ transformStyle: "preserve-3d" }}
+        style={{
+          transformStyle: "preserve-3d",
+        }}
       >
         <div
-          className="absolute w-full h-full bg-white rounded-md sm:rounded-2xl flex items-center justify-center shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.15)] group"
-          style={{ backfaceVisibility: "hidden" }}
+          className="absolute w-full h-full bg-[#f5f5f5] hover:bg-[#ebf5f3] rounded-md sm:rounded-2xl flex items-center justify-center shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.15)] group bg-cover bg-center bg-no-repeat"
+          style={{
+            backfaceVisibility: "hidden",
+            backgroundImage: "url('/card-bg.svg')",
+          }}
         >
-          <p className="font-gilroy-black max-sm:[font-size:_clamp(1.5rem,-3.25rem+23.75vw,6.25rem)] sm:text-[100px] text-[#aaa] group-hover:text-[#B6E9DE] transition-all ">
+          <p className="font-gilroy-black max-sm:[font-size:_clamp(1.5rem,-3.25rem+23.75vw,6.25rem)] sm:text-[60px] xl:text-[100px] text-[#aaa] group-hover:text-[#B6E9DE] transition-all ">
             ?
           </p>
         </div>

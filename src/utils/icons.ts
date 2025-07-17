@@ -6,6 +6,7 @@ import {
   faPlay,
   faUser,
   faArrowLeft,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faCog, faRepeat, faX, faPlay, faUser, faArrowLeft);
+library.add(faCog, faRepeat, faX, faPlay, faUser, faArrowLeft, faCheck);
