@@ -16,6 +16,7 @@ export * from "./organisms/TimeUpModal";
 export * from "./organisms/GameSettingsModal";
 export * from "./organisms/Indicator";
 export * from "./organisms/Stats";
+export * from "./organisms/StatsTable";
 
 export * from "./templates/Home";
 export * from "./templates/Game";

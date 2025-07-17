@@ -38,8 +38,7 @@ export const Board = () => {
         auto-rows-fr 
         grid-cols-3 
         md:grid-cols-4 
-        lg:grid-cols-6 
-        "
+        lg:grid-cols-6"
     >
       {renderCards()}
       {gameOver && (

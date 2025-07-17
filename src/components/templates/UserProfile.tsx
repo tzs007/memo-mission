@@ -4,11 +4,11 @@ import { Button, Icon, Input, Logo } from "components"; // Update the path as ne
 import { useDispatch, useSelector } from "react-redux";
 import { setUserName } from "store";
 import { type RootState } from "store";
+import { StatsTable } from "components";
 
 export const UserProfile = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  const stats = useSelector((state: RootState) => state.game.stats);
   const userName = useSelector((state: RootState) => state.user.name);
   const [tempName, setTempName] = useState<string | null>(userName);
 
@@ -60,65 +60,21 @@ export const UserProfile = () => {
                 className="w-full flex-1"
                 onChange={handleNameChange}
               />
-              {userName === tempName ? (
+              {userName === tempName && tempName !== "" ? (
                 <div className="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
                   <Icon icon={["fas", "check"]} size="sm" />
                 </div>
               ) : (
-                <Button size="sm" onClick={handleSave}>
+                <Button size="sm" onClick={handleSave} disabled={!tempName}>
                   Save
                 </Button>
               )}
             </fieldset>
           </div>
+
           <hr className="my-10" />
-          <h2 className="text-base md:text-2xl font-bold mb-4">Stats</h2>
-          <table className="table w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:text-gray-400">
-              <tr>
-                <th scope="col" className="px-6 py-3">
-                  Matches
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Mistakes
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Duration
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Result
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Date
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {stats.length > 0 ? (
-                stats.map((stat) => (
-                  <tr key={stat.id} className="border-b border-gray-200">
-                    <td className="px-6 py-3">{stat.matches}</td>
-                    <td className="px-6 py-3">{stat.mistakes}</td>
-                    <td className="px-6 py-3">{stat.duration}</td>
-                    <td className="px-6 py-3">{stat.won ? "🏆" : "😥"}</td>
-                    <td className="px-6 py-3">
-                      {new Date(stat.timestamp).toLocaleString()}
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan={5} className="px-6 pt-20 pb-4 text-center">
-                    <p className="text-6xl">🫣</p>
-                    <p className="text-xl mb-4">No game stats available!</p>
-                    <Button onClick={handleStartGame} className="mx-auto">
-                      Start Game
-                    </Button>
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+
+          <StatsTable handleStartGame={handleStartGame} />
         </div>
       </div>
     </section>
