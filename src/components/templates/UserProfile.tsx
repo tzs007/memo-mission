@@ -34,7 +34,7 @@ export const UserProfile = () => {
       className="container mx-auto pb-[50px] px-[50px] h-screen"
     >
       <div className="flex flex-col justify-start items-center h-full w-full">
-        <div className="flex flex-row justify-between items-center w-full mb-8">
+        <header className="flex flex-row justify-between items-center w-full py-4">
           <div>
             <Logo />
           </div>
@@ -43,7 +43,7 @@ export const UserProfile = () => {
               <Icon icon={["fas", "arrow-left"]} size="sm" /> Back
             </Button>
           </div>
-        </div>
+        </header>
         <div className="mb-8 w-full">
           <h1 className="text-center text-xl md:text-4xl font-bold mb-4">
             User Profile
